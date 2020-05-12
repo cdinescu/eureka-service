@@ -7,6 +7,6 @@ However, it will be kept in order to facillitate service discovery for the autom
 Technology stack:
 - Spring Framework\- Spring Cloud
 - Gradle
-
 <hr>
+
 ![alt text](https://github.com/cdinescu/eureka-service/blob/master/vitanum_architecture.png)
