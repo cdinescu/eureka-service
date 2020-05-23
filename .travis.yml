@@ -2,7 +2,12 @@ language: java
 
 script:
   - ./gradlew build --scan -s
+  - ./gradlew check
 
+
+after_success:
+  - export CODACY_PROJECT_TOKEN=6fa9396e1a104e5ea8e83b82a5028d8a
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l Java -r build/reports/jacoco/report.xml
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
