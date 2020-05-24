@@ -1,5 +1,13 @@
 #!/bin/bash
+
+echo "1) Build jar classes"
+
+./gradlew bootJar
+
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
+echo "2) Build Docker image"
 docker build -t "$DOCKER_USERNAME"/vitanum-naming-server .
+
+echo "3) Push Docker image"
 docker push "$DOCKER_USERNAME"/vitanum-naming-server:"$RELEASE"
