@@ -11,8 +11,8 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
-    wget "$IMG_PUSH_SCRIPT"
-    bash docker_image_push.sh
+    - wget "$IMG_PUSH_SCRIPT"
+    - bash docker_image_push.sh
   on:
     branch: master
 
