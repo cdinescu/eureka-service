@@ -10,7 +10,7 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash < "$IMG_PUSH_SCRIPT"
+  script: bash <(curl -Ls "$IMG_PUSH_SCRIPT")
   on:
     branch: master
 
