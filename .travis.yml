@@ -7,9 +7,11 @@ script:
   - ./gradlew build --scan -s
   - ./gradlew check
 
-after_success:
-  - docker build -t villanelle/vitanum-naming-server .
-  - docker push villanelle/vitanum-naming-server:$RELEASE
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
